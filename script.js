@@ -1,5 +1,8 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext('2d');
+const sonVentilateur = new Audio("ventilateur.mp3");
+sonVentilateur.loop = true;
+sonVentilateur.volume = 0.4;
 
 let ventilateurAllume = false;
 let angle = 0;
@@ -41,7 +44,15 @@ canvas.addEventListener("click", function(event){
         sourisY <= button.y + button.hauteur
     ){
         ventilateurAllume = !ventilateurAllume;
-        dessinerBouton();
+
+    if (ventilateurAllume) {
+        sonVentilateur.play();
+    } else {
+        sonVentilateur.pause();
+        sonVentilateur.currentTime = 0;
+    }
+
+    dessinerBouton();
     }
 
 });
