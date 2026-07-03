@@ -2,6 +2,8 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext('2d');
 const sonVentilateur = new Audio("ventilateur.mp3");
 const sonVentilateurFort = new Audio("ventilateurfort.mp3");
+const background = new Image();
+background.src = "beach.jpg";
 let vitesseVentilateur = 0;
 sonVentilateur.loop = true;
 sonVentilateur.volume = 0.4;
@@ -92,7 +94,7 @@ function dessinerVentillateur(){
     for(let i = 0; i < 3; i++){
         ctx.beginPath();
         ctx.ellipse(0, -120, 50, 150, 0, 0, Math.PI *2);
-        ctx.fillStyle = "lightgray";
+        ctx.fillStyle = "orange";
         ctx.fill();
         ctx.rotate(Math.PI * 2/3);
         
@@ -110,8 +112,7 @@ function dessinerVentillateur(){
 dessinerVentillateur();
 
 function dessinerFond(){
-    ctx.fillStyle= "#dbeade";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 }
 
 function dessinerPied(){
