@@ -160,6 +160,7 @@ function changerSon(){
         sonVentilateur.src = "ventilateurfort.mp3";
     } else if(vitesseVentilateur === 3){
         sonVentilateur.src = "ventilateurfort.mp3";
+        sonVentilateur.volume = 1;
     }
 
     sonVentilateur.loop = true;
